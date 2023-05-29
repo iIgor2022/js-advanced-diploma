@@ -24,7 +24,25 @@
  * */
 export function calcTileType(index, boardSize) {
   // TODO: ваш код будет тут
-  return 'center';
+  const row = Math.floor(index / boardSize);
+  const column = index % boardSize;
+  function calcColumn() {
+    if (column === 0) {
+      return 'left';
+    }
+    if (column === boardSize - 1) {
+      return 'right';
+    }
+    return 'center';
+  }
+  const position = calcColumn();
+  if (row === 0) {
+    return position === 'center' ? 'top' : `top-${position}`;
+  }
+  if (row === boardSize - 1) {
+    return position === 'center' ? 'bottom' : `bottom-${position}`;
+  }
+  return position;
 }
 
 export function calcHealthLevel(health) {
