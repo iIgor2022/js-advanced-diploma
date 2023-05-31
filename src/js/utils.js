@@ -56,3 +56,8 @@ export function calcHealthLevel(health) {
 
   return 'high';
 }
+
+export function getTooltipMessage(character) {
+  // Return formatted message for tooltip
+  return `\u{1F396}${character.level}\u{2694}${character.attack}\u{1F6E1}${character.defence}\u{2764}${character.health}`;
+}
